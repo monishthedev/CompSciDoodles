@@ -1,0 +1,16 @@
+public class thingThree {
+    public static void thingThree(int rows){
+        for (int i=1;i<=rows;i++){
+            for (int ii=0; ii<rows-i;ii++){
+                System.out.print(" ");
+            }
+            for (int aster = 0; aster<i;aster++){
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+    public static void main(String[] args) {
+        thingThree(5);
+    }
+}
