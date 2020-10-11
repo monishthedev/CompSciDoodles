@@ -1,0 +1,57 @@
+public class part2 {
+    private static int[] array(int input){
+        int[] array = new int[input +1];
+        for(int i:array){
+            array[i]=i;
+    }
+        return array;
+}
+    private static void switcher(int[] arr, int num, int num2){
+        int shorter= arr[num];
+        arr[num]=arr[num2];
+        arr[num2]=shorter ;
+    }
+    public static boolean permut(int[] arr2){
+      //for(arr2 : int j=0)
+        int numValues = arr2.length;
+        int j = 0;
+        for( j= numValues - 2; j>=0;j--) {
+            if (arr2[j] < arr2[j + 1]) {
+                break; //endloop
+            }
+        /*   if (j==-1){
+               return false;
+           }*/
+        }
+        int switcheroo = numValues -1;//switch next values
+
+            while(arr2[j]>arr2[switcheroo]){
+                switcheroo--;
+            }
+        switcher(arr2,j,switcheroo);
+            int point =j +1;
+            int point2 = numValues-1;
+            while (point2>point){
+                switcher(arr2,point2,point);
+                point++;
+                point2--;
+            }
+            System.out.println(Arrays.toString(arr2));//my dad helped me with the toString method
+            return true;
+        }
+        private static String  million(int end, int[] arr3){
+        int count = 0;
+        while  (permut(arr3)) {
+            if (count++ == end) {//error
+                break;
+            }
+        }
+            String str = Arrays.toString(arr3);
+            return str;
+        }
+        public static void main(String[] args){
+            int[] array = new int[9];
+            int milly = 1000000;
+            System.out.println(million(milly,array));
+    }
+}
